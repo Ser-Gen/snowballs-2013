@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>С наступающим 2013 годом!</title>
+		
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=1154, height=704, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/core.js"></script>
+<script src="js/draw.js"></script>
+<script src="js/options.js"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<body>
+	<div class="pageMain page-start">
+		<canvas id="drawCanvas">Ваш браузер не поддерживает HTML5 Canvas.</canvas>
+		<nav>
+			<section class="screen-start">
+				<p class="description">
+					Кликая по змеям, попадите в них как можно большее количество раз. Попадание по красным змеям увеличит время игры. Удачи!
+				</p>
+				<button class="btn" onclick="game.drawGameStart()">Начать игру</button>
+			</section>
+			<section class="screen-end">
+				<hgroup>
+					<h1 class="result">32</h1>
+					<h2>попадания</h2>
+				</hgroup>
+        <button class="btn" onclick="$('.pageMain').removeClass('page-end').addClass('page-start');game.resetGame();">В начало</button>
+			</section>
+		</nav>
+	</div>
+</body>

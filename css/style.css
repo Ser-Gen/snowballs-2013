@@ -1,0 +1,340 @@
+/*
+ * TABLE OF CONTENTS
+------------------------------------------------------------------------------*/
+/*
+
+	0. RESET AND COMMONS
+	
+	1. USEFUL
+		
+	2. LAYOUT
+		2.1. LAYOUT — START
+		2.2. LAYOUT — PROGRESS
+		2.3. LAYOUT — END
+
+ */
+
+
+
+/* 0. RESET AND COMMONS
+------------------------------------------------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ul {
+	list-style: none;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	overflow-y: scroll;
+	width: 100%;
+}
+
+body {
+	background: #f0f2f4 url(../img/bg.png);
+	color: #000;
+	font: 13px Helvetica, Arial, sans-serif;
+	margin: auto;
+	min-width: 980px;
+	width: 100%;
+}
+
+
+/* В webkit убираем отступ у элементов форм, наследуем шрифт */
+button {
+	font-family: inherit;
+	margin: 0;
+}
+
+/* В FF убираем лишний отступ */
+button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+a,
+button {
+	outline: none;
+}
+
+::-moz-selection {
+	background-color: #81ae22;
+	color: #fff;
+	text-shadow: none;
+}
+::selection {
+	background-color: #81ae22;
+	color: #fff;
+	text-shadow: none;
+}
+
+
+
+/* 1. USEFUL
+------------------------------------------------------------------------------*/
+
+.hide {
+	display: none !important;
+}
+
+
+
+/* 2. LAYOUT
+------------------------------------------------------------------------------*/
+
+body {
+	background: #97def5 url(../img/main-bg.jpg);
+	color:  #000;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6428571428571428571428571428571;
+}
+body:after {
+	background: url(../img/holes-sprite-82x82.png), url(../img/snake-sprite-106x107.png), url(../img/game-results-bg.png), url(../img/back-button-sprite-200x68.png);
+	content: "";
+	visibility: hidden;
+}
+
+.pageMain {
+	background: url(../img/game-bg.png) no-repeat;
+	height: 704px;
+	left: 50%;
+	margin: -352px 0 0 -527px;
+	position: absolute;
+	top: 50%;
+	width: 1054px;
+}
+
+.pageMain canvas,
+.pageMain nav {
+	height: 630px;
+	left: 37px;
+	position: absolute;
+	top: 29px;
+	width: 980px;
+}
+.pageMain canvas {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.pageMain canvas span {
+	background-color: #fff;
+	border: 1px solid #999;
+	color: #d12d23;
+	font-weight: bold;
+	display: block;
+	padding: 10px;
+}
+
+.pageMain nav {
+	display: none;
+	overflow: hidden;
+}
+
+.pageMain .btn {
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	height: 97px;
+	text-indent: -9999px;
+	vertical-align: top;
+	width: 333px;
+}
+
+.pageMain section {
+	display: none;
+}
+
+
+
+/* 2.1. LAYOUT — START
+------------------------------------------------------------------------------*/
+
+.page-start nav {
+	background: url(../img/logo.png) 50% 155px no-repeat;
+	display: block;
+	padding: 165px 105px;
+	text-align: center;
+}
+.page-start .screen-start {
+	display: inline-block;
+}
+.page-start .btn {
+	background: url(../img/start-button-sprite-333x97.png);
+	margin: 0 -24px;
+}
+.page-start .btn:hover {
+	background-position: 0 -97px;
+}
+.page-start .btn:active {
+	background-position: 0 -194px;
+}
+.page-start nav:before,
+.page-start nav:after {
+	background-repeat: no-repeat;
+	content: "";
+	display: block;
+	position: absolute;
+}
+.page-start nav:before {
+	background-image: url(../img/holes-sprite-82x82.png);
+	bottom: -41px;
+	height: 82px;
+	left: 625px;
+	width: 82px;
+}
+.page-start nav:after {
+	background-image: url(../img/snake-sprite-106x107.png);
+	bottom: -53px;
+	height: 107px;
+	left: 612px;
+	width: 106px;
+}
+
+
+.page-start .result {
+	float: right;
+}
+.page-start .description {
+	font-size: 16px;
+	margin: 120px 180px 35px;
+	text-align: left;
+}
+
+.page-start .description.deny {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+.pageMain .result h2 {
+	color: #dc2b25;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: .5em;
+}
+
+.pageMain .result ul {
+	margin-left: -.5em;
+}
+
+.pageMain .result li {
+	height: 24px;
+	white-space: nowrap;
+}
+
+.pageMain .result span {
+	display: inline-block;
+}
+
+.pageMain .result span.score {
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.pageMain .result span.wrap {
+	width: 250px;
+	overflow: hidden;
+}
+
+.pageMain .result span.line {
+	border-bottom: 1px dotted #000;
+	width: 250px;
+}
+
+.pageMain .result span.num {
+	width: 20px;
+	text-align: right;
+	color: #777;
+}
+
+
+
+/* 2.2. LAYOUT — PROGRESS
+------------------------------------------------------------------------------*/
+
+
+
+/* 2.3. LAYOUT — END
+------------------------------------------------------------------------------*/
+
+.page-end nav {
+	background: url(../img/game-results-bg.png) 50% 149px no-repeat rgba(58,144,181,.25);
+	-webkit-border-radius: 25px;
+	   -moz-border-radius: 25px;
+	        border-radius: 25px;
+	display: block;
+	padding: 210px 380px;
+	text-align: center;
+}
+.page-end .screen-end {
+	display: inline-block;
+}
+
+.page-end .btn {
+	background: url(../img/back-button-sprite-200x68.png);
+	height: 68px;
+	width: 200px;
+}
+.page-end .btn:hover {
+	background-position: 0 -68px;
+}
+.page-end .btn:active {
+	background-position: 0 -136px;
+}
+
+.screen-end hgroup {
+	margin-bottom: 20px;
+	text-shadow: 0 3px 1px rgba(255,255,255,.5);
+}
+.screen-end .result,
+.screen-end h2 {
+	font-weight: bold;
+	line-height: 1;
+}
+.screen-end .result {
+	color: #5c8600;
+	font-size: 90px;
+}
+.screen-end h2 {
+	color: #777f82;
+	font-size: 24px;
+}
